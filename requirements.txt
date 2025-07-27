@@ -1,6 +1,6 @@
 gunicorn
 flask
-openai
+openai==0.28
 requests
 torch
 numpy
