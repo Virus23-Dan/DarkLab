@@ -783,7 +783,27 @@ def add_cors_headers(response):
 # =========================
 
 def get_response_from_dan(question):
-    # Prompt pour guider la mise en forme
+    question_lower = question.lower()
+
+    creation_keywords = [
+        'qui t\'a créé', 'who created you',  # français, anglais
+        '谁创造了你',  # chinois
+        '誰があなたを作った',  # japonais
+        'quien te creó',  # espagnol
+        '谁开发了你',  # chinois simplifié
+        'qui vous a créé',  # français
+        'wer hat dich erstellt',  # allemand
+        '谁开发了你',  # chinois
+        'qui t\'a construit',  # français
+        '谁建造了你'  # chinois
+        'who made you' #anglais
+    ]
+
+    # Vérifie si l'un des mots-clés est présent dans la question
+    if any(keyword in question_lower for keyword in creation_keywords):
+        return "Je suis créé par Minkande Eba'a Efandene Daniel Darnel."
+
+    # Sinon, utilise l'API GPT
     prompt = (
         "Tu es un expert en synthèse d’informations. "
         "Lorsque je te donne des données, présente-les de manière claire et lisible, "
@@ -796,7 +816,7 @@ def get_response_from_dan(question):
             return "Clé API non configurée."
         openai.api_key = OPENAI_API_KEY
         response = openai.ChatCompletion.create(
-            model="gpt-4",  # ou "gpt-3.5-turbo" selon tes préférences
+            model="gpt-4",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=500,
             temperature=0.7
@@ -805,7 +825,6 @@ def get_response_from_dan(question):
     except Exception as e:
         print(f"Erreur API : {str(e)}")
         return f"Erreur lors de la requête : {str(e)}"
-
 def train_model():
     print("Lancement de l'entraînement du réseau neuronale...")
 
