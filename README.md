@@ -49,7 +49,7 @@ git clone https://github.com/Virus23-Dan/DarkLab.git
 cd darklab-ai
 ```
 
-##Installation des dépendances :
+Installation des dépendances :
 ```
 pip install -r requirements.txt
 ```
