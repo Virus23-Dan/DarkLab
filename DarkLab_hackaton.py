@@ -795,7 +795,7 @@ def get_response_from_dan(question):
         'wer hat dich erstellt',  # allemand
         '谁开发了你',  # chinois
         'qui t\'a construit',  # français
-        '谁建造了你'  # chinois
+        '谁建造了你',  # chinois
         'who made you' #anglais
     ]
 
