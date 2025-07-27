@@ -46,7 +46,7 @@ Clone le repository :
 
 ```bash
 git clone https://github.com/Virus23-Dan/DarkLab.git
-cd darklab-ai
+cd DarkLab
 ```
 
 Installation des dépendances :
